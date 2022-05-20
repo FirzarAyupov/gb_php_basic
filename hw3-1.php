@@ -7,6 +7,10 @@ for ($i = 0; $i < 10; $i++) {
 print_r($arr1);
 print_r($arr2);
 
+$arr3 = [];
+
 for ($i = 0; $i < 10; $i++) {
-    print_r($arr1[$i] * $arr2[$i] . PHP_EOL);
+    $arr3[] = $arr1[$i] * $arr2[$i];
 }
+
+print_r($arr3);
