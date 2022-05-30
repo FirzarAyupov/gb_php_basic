@@ -25,6 +25,70 @@ class User
         }
     }
 
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSex(): ?string
+    {
+        return $this->sex;
+    }
+
+    /**
+     * @param string|null $sex
+     */
+    public function setSex(?string $sex): void
+    {
+        $this->sex = $sex;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param bool $isActive
+     */
+    public function setIsActive(bool $isActive): void
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getDateCreated(): DateTime
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * @param DateTime $dateCreated
+     */
+    public function setDateCreated(DateTime $dateCreated): void
+    {
+        $this->dateCreated = $dateCreated;
+    }
+
     public function getAge(): ?int
     {
         return $this->age;

@@ -1,7 +1,5 @@
 <?php
 
-require_once "User.php";
-
 class Task
 {
     private string $description;
@@ -37,7 +35,7 @@ class Task
 
     public function getDateCreated(): string
     {
-        return $this->dateCreated->format('Y-m-d H:i:s');
+        return $this->dateCreated;
     }
 
     private function setDateCreated(): void
