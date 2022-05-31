@@ -1,29 +1,29 @@
 <?php
 
-require_once "Task.php";
+class TaskProvider
+{
 
-class TaskProvider {
+    private array $taskList;
 
-    private array $taskList = [];
-
-    //для добавления тестовых данных использовал конструктор
     public function __construct()
     {
-        $this->taskList = [
-            new Task('Погулять с собакой'),
-            new Task('Вынести мусор' )
-        ];
+        $this->taskList = $_SESSION['tasks'] ?? [];
     }
 
-    function getUndoneList()
+    function getUndoneList(): array
     {
-        return array_filter($this->taskList, function ($value) {
-            return ($value->getIsDone() === false);
-        });
+        if (isset($this->taskList)) {
+            return array_filter($this->taskList, function ($value) {
+                return ($value->getIsDone() === false);
+            });
+        } else {
+            return [];
+        }
     }
 
-    function addTask(Task $task)
+    public function addTask(Task $task): void
     {
+        $_SESSION['tasks'][] = $task;
         $this->taskList[] = $task;
     }
 }
