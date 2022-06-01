@@ -8,11 +8,16 @@
     <input type="submit" value="Добавить">
 </form>
 <!--<a href="?controller=tasks&action=addTask">Добавить задачу</a>-->
-<ol>
-    <?php foreach ($tasks as $task): ?>
-        <li>
-            <?= $task->getDescription() ?>
-            <a href="&action=markIsDone&id=<?= $task->getDescription() ?>">[ВЫПОЛНЕНО]</a>
-        </li>
-    <?php endforeach; ?>
-</ol>
+
+<?php if (empty($tasks)): ?>
+    <p>Задачи отсутствуют</p>
+<?php else: ?>
+    <ol>
+        <?php foreach ($tasks as $task): ?>
+            <li>
+                <?= $task->getDescription() ?>
+                <a href="&action=markIsDone&id=<?= $task->getId() ?>">[ВЫПОЛНЕНО]</a>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+<?php endif; ?>

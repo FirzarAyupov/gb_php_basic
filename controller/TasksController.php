@@ -2,6 +2,7 @@
 require_once "model/TaskProvider.php";
 require_once "model/Task.php";
 require_once 'model/User.php';
+$pdo = require 'db.php';
 
 session_start();
 
@@ -12,7 +13,7 @@ if (isset($_SESSION['username'])) {
     header("Location: /");
     die();
 }
-$taskProvider = new TaskProvider();
+$taskProvider = new TaskProvider($pdo);
 
 if (isset($_GET['action']) && $_GET['action'] === 'add') {
     $taskProvider->addTask(new Task($_POST['task']));
