@@ -1,6 +1,7 @@
 <?php
 
 class Task {
+    private int $id;
     private bool $isDone;
     private string $description;
 
@@ -8,6 +9,16 @@ class Task {
     {
         $this->description = $description;
         $this->isDone = $isDone;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getIsDone(): bool
