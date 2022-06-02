@@ -15,17 +15,17 @@ $pdo->exec('CREATE TABLE users (
 
 $pdo->exec('CREATE TABLE tasks (
   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER,
   description VARCHAR(150) NOT NULL,
-  isDone TINYINT(1) NULL DEFAULT (NULL)
+  isDone TINYINT DEFAULT (0)
 )');
-
 
 $user = new User('admin');
 $user->setName('Главный админ');
 
 $userProvider = new UserProvider($pdo);
 $userProvider->registerUser($user, '123');
-
-$task = new Task('Задача 1');
-$taskProvider = new TaskProvider($pdo);
-$taskProvider->addTask($task);
+//
+//$task = new Task('Задача 1');
+//$taskProvider = new TaskProvider($pdo);
+//$taskProvider->addTask($task);

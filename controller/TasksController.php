@@ -21,6 +21,13 @@ if (isset($_GET['action']) && $_GET['action'] === 'add') {
     die();
 }
 
+if (isset($_GET['action']) && $_GET['action'] === 'markIsDone') {
+    $id = $_GET['id'];
+    $taskProvider->doDoneTask($id);
+    header("Location: /?controller=tasks");
+    die();
+}
+
 $pageHeader = "Задачи";
 
 $tasks = $taskProvider->getUndoneList();

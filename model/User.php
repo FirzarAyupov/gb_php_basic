@@ -4,6 +4,7 @@ class User
 {
     private string $username;
     private string $name;
+    private int $id;
 
     public function __construct(string $username)
     {
@@ -33,4 +34,15 @@ class User
 
         return $this;
     }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+
 }
