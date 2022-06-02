@@ -2,10 +2,8 @@
 
 class Task {
     private int $id;
-    private bool $isDone;
-    private string $description;
 
-    public function __construct(string $description, bool $isDone = false)
+    public function __construct(string $description = '', bool $isDone = false)
     {
         $this->description = $description;
         $this->isDone = $isDone;
