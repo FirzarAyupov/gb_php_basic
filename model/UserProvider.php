@@ -13,6 +13,10 @@ class UserProvider
 
     public function registerUser(User $user, string $plainPassword): bool
     {
+        if(strlen($user->getName()) > 30) {
+            throw new LengthException("Длина имени пользовател более 30 символов");
+        }
+
         $statement = $this->pdo->prepare(
             'INSERT INTO users (name, username, password) VALUES (:name, :username, :password)'
         );
