@@ -5,4 +5,5 @@
 <?php else : ?>
 
     <a href="/?controller=security">Войти</a>
+    <a href="/?controller=signup">Регистрация</a>
 <?php endif ?><br>
